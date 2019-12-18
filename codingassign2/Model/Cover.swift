@@ -7,3 +7,14 @@
 //
 
 import Foundation
+import UIKit
+
+struct Cover
+{
+    let title : String
+    let albumid : Int
+    let thumbnail : String
+    let img : String
+    let trackid: Int
+    
+}

@@ -5,26 +5,44 @@
 //  Created by Igwe Onumah on 12/17/19.
 //  Copyright © 2019 Igwe Onumah. All rights reserved.
 //
-
+import Foundation
 import UIKit
 
 class CoverViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBOutlet weak var coverView: UIImageView!
+    
+    var cover: Cover! //implicit unwrap - this value will be there when called
+        
+        override func viewDidLoad() {
+            super.viewDidLoad()
+            setupCover()
+            
     }
-    */
+  
+ 
+    private func setupCover()
+    {
+        guard let myCover = cover else {return}
+
+            guard let url = URL(string: myCover.img) else {return}
+            var data = Data()
+            
+            do{
+                data = try Data(contentsOf: url)
+                
+                
+            }catch{
+                print("Error with image: " + error.localizedDescription)
+            }
+
+            
+            guard let image = UIImage(data: data) else {return }
+            
+           
+        coverView.image = image
+      
+    }
 
 }

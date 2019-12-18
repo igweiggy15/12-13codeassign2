@@ -10,15 +10,11 @@ import UIKit
 
 class CoverTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
+  
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var albumLabel: UILabel!
+    @IBOutlet weak var coverImage: UIImageView!
+    
+    
+    static let identifier = "CoverTableViewCell"
 }
